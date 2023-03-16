@@ -1,5 +1,5 @@
 import 'package:easy_trek/core/export.dart';
-import 'package:easy_trek/widgets/password_field/password_provider.dart';
+import 'package:easy_trek/widgets/password_field/password_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
