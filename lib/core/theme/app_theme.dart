@@ -50,8 +50,8 @@ class AppTheme {
 
   static TextTheme textTheme = TextTheme(
     headlineLarge: GoogleFonts.poppins(
-      fontSize: 24,
-      fontWeight: FontWeight.w600,
+      fontSize: 30,
+      fontWeight: FontWeight.w700,
       color: AppColor.light.darkGrey,
     ),
     headlineMedium: GoogleFonts.poppins(
@@ -71,6 +71,12 @@ class AppTheme {
     ),
     displayMedium: GoogleFonts.poppins(
       fontSize: 14,
+      height: 1.5,
+      fontWeight: FontWeight.w500,
+      color: AppColor.light.darkGrey,
+    ),
+    displaySmall: GoogleFonts.poppins(
+      fontSize: 12,
       height: 1.5,
       fontWeight: FontWeight.w500,
       color: AppColor.light.darkGrey,
