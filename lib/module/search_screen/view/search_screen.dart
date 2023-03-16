@@ -86,11 +86,11 @@ class SearchBarDelegate extends SearchDelegate {
               title: RichText(
                   text: TextSpan(
                       text: suggestions[index].substring(0, query.length),
-                      style: context.textTheme.bodyLarge,
+                      style: context.textStyles.bodyLarge,
                       children: [
                     TextSpan(
                       text: suggestions[index].substring(query.length),
-                      style: context.textTheme.bodyMedium,
+                      style: context.textStyles.bodyMedium,
                     )
                   ])),
             ));

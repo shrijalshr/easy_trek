@@ -20,7 +20,7 @@ class AppButton extends StatelessWidget {
   const AppButton({
     super.key,
     required this.onPressed,
-    required this.label,
+    this.labelText,
     this.height = 52,
     this.borderRadius = 8,
     this.elevation = 0,
@@ -30,12 +30,14 @@ class AppButton extends StatelessWidget {
     ),
     this.buttonState = AppButtonState.primary,
     this.labelColor,
+    this.label,
   });
   final double height;
   final double borderRadius;
   final double elevation;
   final EdgeInsetsGeometry padding;
-  final String label;
+  final String? labelText;
+  final Widget? label;
   final Color? labelColor;
   final VoidCallback onPressed;
 
@@ -54,7 +56,8 @@ class AppButton extends StatelessWidget {
 
   factory AppButton.secondary({
     required VoidCallback onPressed,
-    required String label,
+    Widget? label,
+    String? labelText,
     double height = 52,
     double borderRadius = 4,
     double elevation = 0,
@@ -66,6 +69,7 @@ class AppButton extends StatelessWidget {
     return AppButton(
       onPressed: onPressed,
       label: label,
+      labelText: labelText,
       buttonState: AppButtonState.secondary,
       height: height,
       borderRadius: borderRadius,
@@ -75,7 +79,8 @@ class AppButton extends StatelessWidget {
     );
   }
   factory AppButton.disabled({
-    required String label,
+    String? labelText,
+    Widget? label,
     double height = 52,
     double borderRadius = 4,
     double elevation = 0,
@@ -87,6 +92,7 @@ class AppButton extends StatelessWidget {
     return AppButton(
       onPressed: () {},
       label: label,
+      labelText: labelText,
       buttonState: AppButtonState.disabled,
       height: height,
       borderRadius: borderRadius,
@@ -114,7 +120,7 @@ class AppButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(borderRadius),
           side: buttonState == AppButtonState.secondary
               ? BorderSide(
-                  color: appColor.darkGrey,
+                  color: appColor.lightGrey,
                 )
               : BorderSide.none,
         ),
@@ -123,14 +129,15 @@ class AppButton extends StatelessWidget {
         shadowColor: Colors.transparent,
       ),
       child: Center(
-        child: Text(
-          label,
-          style: Theme.of(context).textTheme.labelLarge!.apply(
-                color: buttonState == AppButtonState.primary
-                    ? appColor.white
-                    : appColor.darkGrey,
-              ),
-        ),
+        child: label ??
+            Text(
+              labelText ?? "",
+              style: Theme.of(context).textTheme.labelLarge!.apply(
+                    color: buttonState == AppButtonState.primary
+                        ? appColor.white
+                        : appColor.darkGrey,
+                  ),
+            ),
       ),
     );
   }
