@@ -1,4 +1,6 @@
 import 'package:easy_trek/module/auth/login/view/login_screen.dart';
+import 'package:easy_trek/module/auth/signup/view/signup_screen.dart';
+import 'package:easy_trek/module/homescreen/view/home_screen.dart';
 import 'package:flutter/material.dart';
 
 class Routes {
@@ -13,12 +15,19 @@ class RouteGenerator {
   static Route<dynamic> onRouteGenerate(RouteSettings settings) {
     switch (settings.name) {
       case '/':
-        return getPage(const LoginScreen());
+        return getPage(LoginScreen());
 
       case Routes.login:
-        return getPage(const LoginScreen());
+        return getPage(LoginScreen());
+
+      case Routes.signup:
+        return getPage(SignupScreen());
+
+      case Routes.homescreen:
+        return getPage(const Homescreen());
+
       default:
-        return getPage(const LoginScreen());
+        return getPage(LoginScreen());
     }
   }
 
