@@ -66,15 +66,23 @@ class Homescreen extends StatelessWidget {
                       Get.toNamed(Routes.placeDetailScreen);
                     },
                     child: Container(
-                      height: 10.fh,
+                      height: 12.fh,
                       width: 60.fw,
-                      decoration:
-                          BoxDecoration(color: context.color.warningColor),
+                      decoration: BoxDecoration(
+                          color: context.color.primaryColor,
+                          borderRadius: BorderRadius.circular(16)),
                       child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Expanded(
-                            child: Image.asset(
-                              AssetPaths.mountain4,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(16),
+                              child: Image.asset(
+                                AssetPaths.mountain4,
+                                fit: BoxFit.cover,
+                                height: 12.fh,
+                                width: 18.fh,
+                              ).pr(8),
                             ),
                           ),
                           Expanded(
@@ -82,13 +90,17 @@ class Homescreen extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(
-                                  "Mt. Everest",
-                                  style: context.textStyles.headlineSmall,
+                                Flexible(
+                                  child: Text(
+                                    "Mt. Everest",
+                                    style: context.textStyles.headlineSmall,
+                                  ),
                                 ),
-                                Text(
-                                  "Sagarmatha",
-                                  style: context.textStyles.displayMedium,
+                                Flexible(
+                                  child: Text(
+                                    "Sagarmatha",
+                                    style: context.textStyles.displayMedium,
+                                  ),
                                 ),
                               ],
                             ),
