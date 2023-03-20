@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 @immutable
 class AppColor extends ThemeExtension<AppColor> {
+  final Color primaryColor;
   final Color darkGrey;
   final Color lightGrey;
   final Color whiteSmoke;
@@ -13,6 +14,7 @@ class AppColor extends ThemeExtension<AppColor> {
   final Color warningColor;
 
   const AppColor({
+    required this.primaryColor,
     required this.darkGrey,
     required this.lightGrey,
     required this.whiteSmoke,
@@ -38,6 +40,7 @@ class AppColor extends ThemeExtension<AppColor> {
     Color? warningColor,
   }) {
     return AppColor(
+        primaryColor: primaryColor ?? this.primaryColor,
         darkGrey: darkGrey ?? this.darkGrey,
         lightGrey: lightGrey ?? this.lightGrey,
         whiteSmoke: whiteSmoke ?? this.whiteSmoke,
@@ -53,6 +56,8 @@ class AppColor extends ThemeExtension<AppColor> {
     if (other is! AppColor) return this;
 
     return AppColor(
+      primaryColor:
+          Color.lerp(primaryColor, other.primaryColor, t) ?? primaryColor,
       darkGrey: Color.lerp(darkGrey, other.darkGrey, t) ?? darkGrey,
       lightGrey: Color.lerp(lightGrey, other.lightGrey, t) ?? lightGrey,
       white: Color.lerp(white, other.white, t) ?? white,
@@ -67,6 +72,7 @@ class AppColor extends ThemeExtension<AppColor> {
   }
 
   static const AppColor light = AppColor(
+    primaryColor: Color(0xffDCE4DB),
     darkGrey: Color(0xff1A1D26),
     lightGrey: Color.fromARGB(255, 205, 205, 207),
     whiteSmoke: Color(0xfffcfcfc),
