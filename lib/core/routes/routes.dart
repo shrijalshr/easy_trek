@@ -1,6 +1,7 @@
 import 'package:easy_trek/module/auth/login/view/login_screen.dart';
 import 'package:easy_trek/module/auth/signup/view/signup_screen.dart';
 import 'package:easy_trek/module/homescreen/view/home_screen.dart';
+import 'package:easy_trek/module/place_detail/view/place_detail_screen.dart';
 import 'package:flutter/material.dart';
 
 class Routes {
@@ -9,6 +10,7 @@ class Routes {
   static const String login = "/login";
   static const String signup = "/signup";
   static const String homescreen = "/homescreen";
+  static const String placeDetailScreen = "/placeDetailScreen";
 }
 
 class RouteGenerator {
@@ -25,6 +27,8 @@ class RouteGenerator {
 
       case Routes.homescreen:
         return getPage(const Homescreen());
+      case Routes.placeDetailScreen:
+        return getPage(const PlaceDetailScreen());
 
       default:
         return getPage(LoginScreen());
