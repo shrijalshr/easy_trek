@@ -31,6 +31,7 @@ dependencies:
   cached_network_image: ^3.2.3
   carousel_slider: ^4.2.1
   cupertino_icons: ^1.0.2
+  expandable_text: ^2.3.0
   file_picker: ^5.2.6
   flutter:
     sdk: flutter
