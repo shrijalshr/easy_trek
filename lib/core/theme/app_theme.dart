@@ -17,8 +17,8 @@ class AppTheme {
           color: AppColor.light.darkGrey,
           // fontSizeDelta: 18,
         ),
-        systemOverlayStyle: SystemUiOverlayStyle(
-          statusBarColor: AppColor.light.white,
+        systemOverlayStyle: const SystemUiOverlayStyle(
+          statusBarColor: Colors.transparent,
         )),
     primaryColor: AppColor.light.darkGrey,
     scaffoldBackgroundColor: AppColor.light.whiteSmoke,
