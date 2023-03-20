@@ -119,19 +119,21 @@ class PostFormScreen extends StatelessWidget {
               ],
             ),
           ).pb(16),
-          const MyTextField(
+          MyTextField(
+            textController: controller.caption,
             label: "Add Caption",
             maxLines: 3,
             borderRadius: 8,
             border: InputBorder.none,
-            fillColor: Color(0xffF2F2F2),
+            fillColor: const Color(0xffF2F2F2),
           ).pb(16),
-          const MyTextField(
+          MyTextField(
+            textController: controller.hashtags,
             label: "Add Hashtags",
             maxLines: 3,
             borderRadius: 8,
             border: InputBorder.none,
-            fillColor: Color(0xffF2F2F2),
+            fillColor: const Color(0xffF2F2F2),
           ).pb(16),
           AppButton(
             onPressed: () {},

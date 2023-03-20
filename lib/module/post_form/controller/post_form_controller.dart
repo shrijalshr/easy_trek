@@ -1,12 +1,13 @@
 import 'dart:io';
 
-import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:path/path.dart';
 
 class PostFormController extends GetxController {
+  final TextEditingController caption = TextEditingController(text: "");
+  final TextEditingController hashtags = TextEditingController(text: "");
+
   Rx<File>? selectedfile;
   var didPick = false.obs;
   var fileName = "".obs;

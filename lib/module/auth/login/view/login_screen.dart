@@ -1,4 +1,5 @@
 import 'package:easy_trek/core/export.dart';
+import 'package:easy_trek/module/auth/login/controller/login_controller.dart';
 import 'package:easy_trek/widgets/app_button.dart';
 import 'package:easy_trek/widgets/my_textfield.dart';
 import 'package:easy_trek/widgets/password_field/password_field.dart';
@@ -11,6 +12,7 @@ class LoginScreen extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
+    final LoginController controller = Get.put(LoginController());
     return Scaffold(
         body: Form(
       key: _formKey,
@@ -23,13 +25,17 @@ class LoginScreen extends StatelessWidget {
             "Login",
             style: context.textStyles.headlineLarge,
           ).pb(24),
-          const MyTextField(
+          MyTextField(
+            textController: controller.email,
             label: "Email",
             hint: "example@gmail.com",
+            textInputAction: TextInputAction.next,
           ).pb(16),
-          const PasswordField(
+          PasswordField(
+            textEditingController: controller.password,
             label: "Enter your Password",
-            hint: "must be 8 characters",
+            hint: "Your password...",
+            textInputAction: TextInputAction.done,
           ).pb(16),
           Align(
             alignment: Alignment.centerRight,

@@ -40,6 +40,8 @@ class PasswordField extends StatelessWidget {
             color: Colors.black,
           ),
           decoration: InputDecoration(
+            errorMaxLines: null,
+            
             filled: true,
             fillColor: context.color.white,
             border: OutlineInputBorder(
