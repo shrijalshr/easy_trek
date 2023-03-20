@@ -24,6 +24,9 @@ class MyTextField extends StatelessWidget {
     this.autoFocus = false,
     this.counter,
     this.hint,
+    this.border,
+    this.filled,
+    this.fillColor,
   }) : super(key: key);
 
   final String? label;
@@ -35,7 +38,10 @@ class MyTextField extends StatelessWidget {
   final int? maxLines;
   final bool readOnly;
   final bool autoFocus;
+  final bool? filled;
+  final Color? fillColor;
   final int? maxLength;
+  final InputBorder? border;
   final String? Function(String?)? validator;
   final TextInputType? inputType;
   final TextEditingController? textController;
@@ -54,34 +60,38 @@ class MyTextField extends StatelessWidget {
           label ?? "",
           style: context.textStyles.titleMedium,
         ).pb(8),
-        TextFormField(
-          autofocus: autoFocus,
-          maxLength: maxLength,
-          validator: validator,
-          controller: textController,
-          initialValue: initialText,
-          keyboardType: inputType,
-          readOnly: readOnly,
-          inputFormatters: const [],
-          textInputAction: textInputAction,
-          maxLines: maxLines,
-          style: TextStyle(
-            color: context.color.darkGrey,
-          ),
-          decoration: InputDecoration(
-            fillColor: context.color.white,
-            filled: true,
-            focusColor: context.color.whiteSmoke,
-            border: OutlineInputBorder(
-              borderSide: BorderSide(color: context.color.lightGrey),
-              borderRadius: BorderRadius.circular(borderRadius ?? 10),
+        ClipRRect(
+          borderRadius: BorderRadius.circular(borderRadius ?? 0),
+          child: TextFormField(
+            autofocus: autoFocus,
+            maxLength: maxLength,
+            validator: validator,
+            controller: textController,
+            initialValue: initialText,
+            keyboardType: inputType,
+            readOnly: readOnly,
+            inputFormatters: const [],
+            textInputAction: textInputAction,
+            maxLines: maxLines,
+            style: TextStyle(
+              color: context.color.darkGrey,
             ),
-            prefixIcon: prefixIcon,
-            hintText: hint,
-            counter: counter,
+            decoration: InputDecoration(
+              fillColor: fillColor ?? context.color.white,
+              filled: filled ?? true,
+              focusColor: context.color.whiteSmoke,
+              border: border ??
+                  OutlineInputBorder(
+                    borderSide: BorderSide(color: context.color.lightGrey),
+                    borderRadius: BorderRadius.circular(borderRadius ?? 10),
+                  ),
+              prefixIcon: prefixIcon,
+              hintText: hint,
+              counter: counter,
+            ),
+            onChanged: onChanged,
+            onSaved: onSaved,
           ),
-          onChanged: onChanged,
-          onSaved: onSaved,
         ),
       ],
     );
