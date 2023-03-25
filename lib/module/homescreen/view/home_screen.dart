@@ -1,7 +1,7 @@
 import 'package:easy_trek/core/export.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
+import 'package:easy_trek/widgets/bottom_navigation/bottom_navigation.dart';
 import '../widget/trek_card.dart';
 
 class Homescreen extends StatelessWidget {
@@ -124,6 +124,7 @@ class Homescreen extends StatelessWidget {
           ],
         ),
       ),
+      bottomNavigationBar: BottomNavigation(),
     );
   }
 }

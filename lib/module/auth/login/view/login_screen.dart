@@ -47,13 +47,23 @@ class LoginScreen extends StatelessWidget {
               ),
             ),
           ).pb(24),
-          AppButton(
+
+          Obx(() => controller.loading.value?
+            const Center(
+              child: Text("Logging in"),
+              
+            ):
+            AppButton(
                   onPressed: () {
-                    if (_formKey.currentState!.validate()) {}
-                    Get.toNamed(Routes.homescreen);
+                    if (_formKey.currentState!.validate()) {
+                      controller.login();
+                    }
+                    
                   },
                   labelText: "Login")
               .pb(24),
+          ),
+          
           Row(
             children: [
               const Expanded(

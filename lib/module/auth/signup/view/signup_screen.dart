@@ -56,7 +56,7 @@ class SignupScreen extends StatelessWidget {
             hint: "must be 8 characters",
           ).pb(16),
           PasswordField(
-            textEditingController: controller.password,
+            textEditingController: controller.confirmPassword,
             textInputAction: TextInputAction.next,
             
             validator: (value) {
@@ -81,12 +81,22 @@ class SignupScreen extends StatelessWidget {
               ),
             ),
           ).pb(24),
+
+
+          Obx(() => controller.loading.value?
+          const Center(
+            child:Text("processing"),
+          ):
           AppButton(
                   onPressed: () {
-                    if (_formKey.currentState!.validate()) {}
+                    if (_formKey.currentState!.validate()) {
+
+                      controller.register();
+                    }
                   },
                   labelText: "Sign up")
-              .pb(24),
+              .pb(24))
+          ,
           Row(
             children: [
               const Expanded(

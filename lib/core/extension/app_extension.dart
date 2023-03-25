@@ -86,10 +86,10 @@ extension ExtendedText on Widget {
 extension PasswordValidation on String {
   bool isPasswordValid() {
     if (length < 8) return false;
-    if (!contains(RegExp(r"[a-z]"))) return false;
-    if (!contains(RegExp(r"[A-Z]"))) return false;
-    if (!contains(RegExp(r"[0-9]"))) return false;
-    if (!contains(RegExp(r'[!@#$%^&*(),.?":{}|<>]'))) return false;
+    // if (!contains(RegExp(r"[a-z]"))) return false;
+    // if (!contains(RegExp(r"[A-Z]"))) return false;
+    // if (!contains(RegExp(r"[0-9]"))) return false;
+    // if (!contains(RegExp(r'[!@#$%^&*(),.?":{}|<>]'))) return false;
     return true;
   }
 }
